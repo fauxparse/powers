@@ -14,3 +14,7 @@
 //= require_tree ./views
 //= require_tree ./controllers
 //= require_tree ./
+
+$(function() {
+  $('body').bind('ontouchmove', function(event) { event.preventDefault(); });
+});
