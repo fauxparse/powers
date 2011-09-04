@@ -69,7 +69,7 @@
   font-weight: bold;
   color: white;
   opacity: 0.85;
-  -webkit-transform: rotate(-45deg);
+  -webkit-transform: rotate(-30deg);
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 

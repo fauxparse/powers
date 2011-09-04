@@ -2,8 +2,6 @@ PowersController = Spine.Controller.create {
   proxied: [ "addOne", "render", "arrangeCards", "startDrag", "stopDrag", "drag", "next", "previous", "touchstart", "touchmove", "touchend", "noDrag" ]
   
   events: {
-    "mousedown":  "startDrag"
-    "mousemove":  "drag"
     "touchstart": "touchstart"
     "touchmove":  "touchmove"
     "touchend":   "touchend"
@@ -11,6 +9,10 @@ PowersController = Spine.Controller.create {
     "mouseup .powers .uses *": "noDrag"
     "mousedown [rel=reset]": "noDrag"
     "mouseup [rel=reset]": "noDrag"
+    "touchstart .powers .uses *": "noDrag"
+    "touchend .powers .uses *": "noDrag"
+    "touchstart [rel=reset]": "noDrag"
+    "touchend [rel=reset]": "noDrag"
   }
   
   init: ->
@@ -18,6 +20,9 @@ PowersController = Spine.Controller.create {
     this.addOne(power) for power in this.powers
     this.index = 0
     this.arrangeCards()
+    unless $.os.ios
+      this.el.bind "mousedown", this.startDrag
+      this.el.bind "mousemove", this.drag
     
   render: ->
     $(window).mousemove this.drag

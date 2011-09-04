@@ -2,12 +2,14 @@ RollController = Spine.Controller.create {
   proxied: [ "render", "remove", "click" ]
   
   events: {
-    "click a": "click"
+    "tap a": "click"
   }
   
   init: ->
     this.roll.bind "update", this.render
     this.roll.bind "remove", this.remove
+    unless $.os.ios
+      this.$("a").click this.click
     
   render: (roll) ->
     this.roll = roll if roll?
