@@ -1,0 +1,29 @@
+.overlay {
+  position: absolute;
+  z-index: 50;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  margin: -80px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  border-radius: 8px;
+  text-shadow: 0 -1px 0 black;
+}
+
+.overlay .result {
+  text-align: center;
+  font-size: 96px;
+  line-height: 112px;
+  font-weight: bold;
+  padding: 8px 0;
+  vertical-align: middle;
+}
+
+.overlay .explanation {
+  display: block;
+  text-align: center;
+  opacity: 0.75;
+  font-size: 16px;
+}

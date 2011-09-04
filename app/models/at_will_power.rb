@@ -1,0 +1,3 @@
+class AtWillPower < Power
+  
+end

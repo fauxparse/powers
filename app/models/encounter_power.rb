@@ -1,0 +1,3 @@
+class EncounterPower < Power
+  
+end

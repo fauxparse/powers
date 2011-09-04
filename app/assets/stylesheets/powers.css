@@ -1,0 +1,207 @@
+.powers {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+}
+
+.power {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-perspective: 1000;
+}
+
+.power .front,
+.power .back {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 4px;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform-origin: 0 50%;
+  -webkit-backface-visibility: hidden;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.power .back {
+  background: #ddd;
+  -webkit-transform-origin: 100% 50%;
+  -webkit-transform: translateX(-100%) rotateY(-180deg);
+}
+
+.power .back .header {
+  opacity: 0.75;
+}
+
+.power.used .front {
+  -webkit-transform: translateX(100%) rotateY(180deg);
+}
+
+.power.used .back {
+  -webkit-transform: translateX(0%) rotateY(0deg);
+}
+
+.power.used .back:after {
+  content: 'Used';
+  background: #ed1c24;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -32px -500px;
+  width: 1000px;
+  text-align: center;
+  font-size: 64px;
+  line-height: 64px;
+  vertical-align: top;
+  font-weight: bold;
+  color: white;
+  opacity: 0.85;
+  -webkit-transform: rotate(-45deg);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.power .header {
+  height: 40px;
+  position: relative;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.power.at-will   .header { background: #8dc63f; }
+.power.encounter .header { background: #00aeef; }
+.power.daily     .header { background: #ec008c; }
+
+.power .header h3 {
+  line-height: 24px;
+  font-size: 18px;
+  margin: 0;
+  padding: 0 8px;
+}
+
+.power .header .type,
+.power .header .action {
+  position: absolute;
+  bottom: 4px;
+  left: 8px;
+  font-size: 12px;
+}
+
+.power .header .action {
+  left: auto;
+  right: 8px;
+}
+
+.power .description {
+  padding: 8px;
+  margin: 0;
+}
+
+.power .rolls {
+  margin: 0;
+  padding: 4px;
+}
+
+.power .rolls:empty {
+  padding: 0;
+}
+
+.power .rolls li {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.power .rolls li a {
+  display: block;
+  margin: 0 0 4px;
+  padding: 8px 4px 8px 16px;
+  text-indent: -12px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  text-shadow: none;
+  color: #222;
+  text-decoration: none;
+}
+
+.power .effect {
+  margin: 4px;
+}
+
+.power .uses,
+.power [rel=reset] {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.power.at-will .uses { display: none; }
+
+.power .uses li,
+.power [rel=reset] {
+  display: block;
+  float: left;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+  border-radius: 16px;
+  background: #f7f7f7;
+  -webkit-box-shadow: inset 0 1px 0px white, inset 0 -1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 white;
+}
+
+.power .uses li:after {
+  content: ' ';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  background: #8dc63f;
+  border-radius: 8px;
+}
+
+.power.at-will   .uses li:after { background: #8dc63f; }
+.power.encounter .uses li:after { background: #00aeef; }
+.power.daily     .uses li:after { background: #ec008c; }
+
+.power .uses li.used:after {
+  opacity: 0.25;
+}
+
+.power .uses li.used {
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px 0 white;
+}
+
+.power [rel=reset] {
+  float: none;
+  position: absolute;
+  color: #666;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 32px;
+  vertical-align: middle;
+  font-weight: bold;
+  width: auto;
+  padding: 0 8px;
+  border-radius: 4px;
+}
+
+.power>[rel=reset] { display: none; }

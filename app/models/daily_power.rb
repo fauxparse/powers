@@ -1,0 +1,3 @@
+class DailyPower < Power
+  
+end
