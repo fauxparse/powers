@@ -77,6 +77,7 @@ PowersController = Spine.Controller.create {
     this.startDrag { x: event.touches[0].pageX }
 
   touchmove: (event) ->
+    event.preventDefault()
     this.drag { x: event.touches[0].pageX }
 
   touchend: (event) ->
