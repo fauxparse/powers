@@ -8,26 +8,27 @@ RollController = Spine.Controller.create {
   init: ->
     this.roll.bind "update", this.render
     this.roll.bind "remove", this.remove
-    unless $.os.ios
-      this.$("a").click this.click
     
   render: (roll) ->
     this.roll = roll if roll?
     this.el.html Jaml.render("roll", this.roll)
+    unless $.os.ios
+      this.$("a").click this.click
     this
     
   remove: ->
     this.el.remove()
     
   click: (event) ->
+    console.log("click")
     event.preventDefault()
     event.stopPropagation()
     result = this.roll.roll()
-    overlay = $(Jaml.render("result", this.roll)).appendTo(this.el.closest("#container")).first()
-    overlay.find(".result").text result
-    overlay.one "click", (event) =>
-      overlay.anim { scale: "100", opacity: 0 }, 0.5, "ease", => overlay.remove()
-      
+    overlay = $("<div/>").addClass("overlay").html(Jaml.render("result", this.roll)).appendTo("#container")
+    overlay.find(".roll").text result
+    overlay.one((if $.os.ios then "tap" else "click"), (event) =>
+      $(".result", overlay).anim { scale: "100", opacity: 0 }, 0.5, "ease", => overlay.remove()
+    )
 }
 
 this.RollController = RollController

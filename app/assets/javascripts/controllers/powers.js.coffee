@@ -1,28 +1,21 @@
 PowersController = Spine.Controller.create {
-  proxied: [ "addOne", "render", "arrangeCards", "startDrag", "stopDrag", "drag", "next", "previous", "touchstart", "touchmove", "touchend", "noDrag" ]
+  proxied: [ "addOne", "render", "arrangeCards", "touchStart", "touchMove", "touchEnd", "mouseDown", "mouseMove", "mouseUp" ]
   
   events: {
-    "touchstart": "touchstart"
-    "touchmove":  "touchmove"
-    "touchend":   "touchend"
-    "mousedown .powers .uses *": "noDrag"
-    "mouseup .powers .uses *": "noDrag"
-    "mousedown [rel=reset]": "noDrag"
-    "mouseup [rel=reset]": "noDrag"
-    "touchstart .powers .uses *": "noDrag"
-    "touchend .powers .uses *": "noDrag"
-    "touchstart [rel=reset]": "noDrag"
-    "touchend [rel=reset]": "noDrag"
+    "touchstart": "touchStart"
+    "touchmove":  "touchMove"
+    "touchend":   "touchEnd"
   }
   
   init: ->
     this.nPowers = 0
     this.addOne(power) for power in this.powers
-    this.index = 0
-    this.arrangeCards()
+    this.translate = 0
+    this.arrangeCards 0
     unless $.os.ios
-      this.el.bind "mousedown", this.startDrag
-      this.el.bind "mousemove", this.drag
+      this.el.bind "mousedown", this.mouseDown
+      this.el.bind "mousemove", this.mouseMove
+      this.el.bind "mouseup",   this.mouseUp
     
   render: ->
     $(window).mousemove this.drag
@@ -38,55 +31,39 @@ PowersController = Spine.Controller.create {
     
   arrangeCards: (index) ->
     this.index = index if index?
-    this.$(".power").css { "-webkit-transform": "translateX(0)" }
-    i = 0
-    for power in this.powers
-      card = this.powerControllers[power.id].el
-      card.css { left: ((i - this.index + this.powers.length + 1) % this.powers.length - 1) * 100 + "%" }
-      i++
+    n = this.powers.length
+    for i in [-1..(n - 2)]
+      p = (i + n - this.index) % n
+      while p < 0
+        p += n
+      power = this.powers[p]
+      this.powerControllers[power.id].el.css { "-webkit-transform": "translateX(#{(i - this.translate) * 100}%)" }
       
-  startDrag: (event) ->
-    this.dragStart = event.x
-    $(window).one("mouseup", (event) => this.stopDrag())
+  touchStart: (event) ->
+    this.dragStart = event.touches[0].pageX
+    this.displacement = 0
     
-  stopDrag: (event) ->
-    if this.dragStart
-      width = this.el.width()
-      if this.displacement < width / -4
-        this.$(".power").anim { translateX: "-#{width}px" }, 0.5, "ease-out"
-        setTimeout this.next, 550
-      else if this.displacement > width / 4
-        this.$(".power").anim { translateX: "#{width}px" }, 0.5, "ease-out"
-        setTimeout this.previous, 550
-      else
-        this.$(".power").anim { translateX: "0px" }
+  touchMove: (event) ->
+    width = this.el.width()
+    this.displacement = (event.touches[0].pageX - this.dragStart) * 1.0 / width
+    this.el.css { "-webkit-transform": "translateX(#{(this.translate + this.displacement) * 100}%)" }
+    
+  touchEnd: (event) ->
+    d = if this.displacement < -0.3 then -1 else if this.displacement > 0.3 then 1 else 0
+    this.el.anim { translateX: "#{(this.translate + d) * 100}%" }, 0.5, "ease-out", =>
+      this.translate += d
+      this.arrangeCards(this.index + d)
     this.dragStart = false
     
-  drag: (event) ->
+  mouseDown: (event) ->
+    this.touchStart { touches: [ { pageX: event.x } ] }
+
+  mouseMove: (event) ->
     if this.dragStart
-      this.displacement = event.x - this.dragStart
-      this.$(".power").css { "-webkit-transform": "translateX(#{this.displacement}px)" }
+      this.touchMove { touches: [ { pageX: event.x } ] }
       
-  next: ->
-    this.arrangeCards (this.index + 1) % this.powers.length
-
-  previous: ->
-    this.arrangeCards (this.index - 1) % this.powers.length
-
-  touchstart: (event) ->
-    this.startDrag { x: event.touches[0].pageX }
-
-  touchmove: (event) ->
-    event.preventDefault()
-    this.drag { x: event.touches[0].pageX }
-
-  touchend: (event) ->
-    this.stopDrag {}
-
-  noDrag: (event) ->
-    event.stopPropagation()
-    this.dragStart = false
-
+  mouseUp: (event) ->
+    this.touchEnd()
 }
 
 PowerController = Spine.Controller.create {

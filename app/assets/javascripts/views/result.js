@@ -1,6 +1,6 @@
 Jaml.register("result", function(roll) {
-  div({ cls: "overlay" },
-    div({ cls: "result" }, ""),
+  div({ cls: "result" },
+    div({ cls: "roll" }, ""),
     div({ cls: "explanation" }, roll.dice)
   );
 });
