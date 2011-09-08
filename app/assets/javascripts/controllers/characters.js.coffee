@@ -27,13 +27,9 @@ CharacterController = Spine.Controller.create {
     this.tabs = TabsController.init {
       el: this.el
     }
+    this.tabs.add "health", "Health", HealthController, { character: this.character }
     this.tabs.add "powers", "Powers", PowersController, { powers: this.character.powers }
     this.tabs.kick()
-    
-    # this.powers = PowersController.init({
-    #   el:     $("<div/>").addClass("powers").appendTo(this.el)
-    #   powers: this.character.powers
-    # })
     
   render: (character) ->
     this.character = character if character?

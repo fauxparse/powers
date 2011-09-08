@@ -1,0 +1,102 @@
+.health .hp {
+  position: relative;
+  margin: 8px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.health .hp .gauge {
+  position: relative;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.health .hp .gauge .bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-indent: -10em;
+  overflow: hidden;
+  border-radius: 8px;
+  min-width: 16px;
+  -webkit-transition: width 0.25s ease;
+}
+
+.health .hp .gauge .temp {
+  width: 75%;
+  background: #00aeef;
+}
+
+.health .hp .gauge .current {
+  width: 60%;
+  background: #8dc63f;
+  z-index: 1;
+}
+
+.health .bloodied .gauge .current {
+  background: #ed1c24;
+}
+
+.health .hp .plus,
+.health .hp .temp.one,
+.health .hp .temp.five,
+.health .hp .minus {
+  position: absolute;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+  color: white;
+  background: #ed1c24;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+.health .hp .plus.one,
+.health .hp .temp.one,
+.health .hp .minus.five {
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+}
+
+.health .hp .plus.five,
+.health .hp .temp.five,
+.health .hp .minus.one {
+  -webkit-border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+}
+
+.health .hp .plus { background: #8dc63f; }
+.health .hp .temp.one, .health .hp .temp.five { background: #00aeef; }
+
+.health .minus.five { left: 0; }
+.health .minus.one  { left: 33px; }
+.health .temp.one   { right: 105px; }
+.health .temp.five  { right: 72px; }
+.health .plus.one   { right: 33px; }
+.health .plus.five  { right: 0; }
+
+.health .hp .values {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: right;
+  font-weight: bold;
+  font-size: 24px;
+  color: #eee;
+}
+
+.health .hp .values:before {
+  content: 'Hit points';
+  position: absolute;
+  left: 0;
+  left: 0;
+  top: 0;
+  text-align: left;
+}

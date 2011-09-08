@@ -57,9 +57,8 @@
   opacity: 0.5;
 }
 
-.tabs>ul li.powers-tab a {
-  background-position: -40px 0;
-}
+.tabs>ul li.health-tab a { background-position: -80px 0; }
+.tabs>ul li.powers-tab a { background-position: -40px 0; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
   .tabs>ul li a {
