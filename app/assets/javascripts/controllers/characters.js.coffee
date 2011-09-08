@@ -24,10 +24,16 @@ CharacterController = Spine.Controller.create {
     this.character.bind "update", this.render
     this.character.bind "destroy", this.remove
     this.el.html Jaml.render("character", this.character)
-    this.powers = PowersController.init({
-      el:     $("<div/>").addClass("powers").appendTo(this.el)
-      powers: this.character.powers
-    })
+    this.tabs = TabsController.init {
+      el: this.el
+    }
+    this.tabs.add "powers", "Powers", PowersController, { powers: this.character.powers }
+    this.tabs.kick()
+    
+    # this.powers = PowersController.init({
+    #   el:     $("<div/>").addClass("powers").appendTo(this.el)
+    #   powers: this.character.powers
+    # })
     
   render: (character) ->
     this.character = character if character?

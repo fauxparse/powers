@@ -18,7 +18,6 @@ PowersController = Spine.Controller.create {
       this.el.bind "mouseup",   this.mouseUp
     
   render: ->
-    $(window).mousemove this.drag
     this
   
   addOne: (power) ->
@@ -49,7 +48,7 @@ PowersController = Spine.Controller.create {
     this.el.css { "-webkit-transform": "translateX(#{(this.translate + this.displacement) * 100}%)" }
     
   touchEnd: (event) ->
-    d = if this.displacement < -0.3 then -1 else if this.displacement > 0.3 then 1 else 0
+    d = if this.displacement < -0.1 then -1 else if this.displacement > 0.1 then 1 else 0
     this.el.anim { translateX: "#{(this.translate + d) * 100}%" }, 0.5, "ease-out", =>
       this.translate += d
       this.arrangeCards(this.index + d)
