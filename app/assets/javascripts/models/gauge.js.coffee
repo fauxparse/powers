@@ -1,6 +1,6 @@
 Gauge = Spine.Model.setup "Gauge", [ "current", "max", "temp", "value" ]
 Gauge.include {
-  value: ->
+  total: ->
     (this.current ? this.max) + (this.temp ? 0)
     
   add: (amount) ->

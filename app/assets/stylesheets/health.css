@@ -1,3 +1,11 @@
+.health {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .health .hp {
   position: relative;
   margin: 8px;
@@ -10,6 +18,7 @@
   height: 16px;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .health .hp .gauge .bar {
@@ -81,7 +90,7 @@
 .health .plus.one   { right: 33px; }
 .health .plus.five  { right: 0; }
 
-.health .hp .values {
+.health .values {
   position: absolute;
   left: 0;
   right: 0;
@@ -99,4 +108,83 @@
   left: 0;
   top: 0;
   text-align: left;
+}
+
+.health .surges {
+  position: relative;
+  margin: 8px;
+  padding-top: 40px;
+}
+
+.health .surges .values:before {
+  content: 'Healing surges';
+  position: absolute;
+  left: 0;
+  left: 0;
+  top: 0;
+  text-align: left;
+}
+
+.health .surges a.use {
+  float: right;
+  width: 40px;
+  height: 40px;
+  background: #ed1c24;
+  border-radius: 20px;
+  position: relative;
+  text-decoration: none;
+  text-indent: -10em;
+  overflow: hidden;
+}
+
+.health .surges a.use:before,
+.health .surges a.use:after {
+  content: " ";
+  position: absolute;
+  overflow: hidden;
+  background: white;
+  left: 16px;
+  top: 6px;
+  width: 8px;
+  height: 28px;
+}
+
+.health .surges a.use:before {
+  -webkit-transform: rotate(90deg);
+}
+
+.health .surges .dots .dot {
+  float: left;
+  margin: 0 8px 8px 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  -webkit-transition: background 0.25s ease;
+}
+
+.health .surges .dots .dot.available {
+  background: #8dc63f;
+  -webkit-box-shadow: none;
+}
+
+.health .rest {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 148px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+  background: #8dc63f;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #eee;
+}
+
+.health .extended.rest {
+  left: 164px;
 }

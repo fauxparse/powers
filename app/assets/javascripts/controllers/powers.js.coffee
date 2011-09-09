@@ -66,15 +66,16 @@ PowersController = Spine.Controller.create {
 }
 
 PowerController = Spine.Controller.create {
-  proxied: [ "render", "remove", "use", "reset" ]
+  proxied: [ "render", "remove", "use", "reset", "resetClicked" ]
   
   events: {
     "click .uses *": "use"
-    "click [rel=reset]": "reset"
+    "click [rel=reset]": "resetClicked"
   }
   
   init: ->
     this.power.bind "update", this.render
+    this.power.bind "reset", this.reset
     
   render: (power) ->
     this.power = power if power?
@@ -96,14 +97,17 @@ PowerController = Spine.Controller.create {
   use: (event) ->
     event.preventDefault()
     $(event.target).toggleClass("used")
-    if this.$(".uses :not(.used)").length == 0
-      this.el.addClass "used"
+    this.power.use()
+    this.el.toggleClass "used", this.power.used()
     false
   
-  reset: (event) ->
+  resetClicked: (event) ->
     event.preventDefault()
-    this.el.removeClass("used").find(".uses *").removeClass("used").end()
+    this.power.reset()
     false
+
+  reset: ->
+    this.el.removeClass("used").find(".uses *").removeClass("used").end()
     
 }
 

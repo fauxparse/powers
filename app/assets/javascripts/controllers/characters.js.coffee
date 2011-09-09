@@ -28,7 +28,7 @@ CharacterController = Spine.Controller.create {
       el: this.el
     }
     this.tabs.add "health", "Health", HealthController, { character: this.character }
-    this.tabs.add "powers", "Powers", PowersController, { powers: this.character.powers }
+    this.tabs.add "powers", "Powers", PowersController, { character: this.character, powers: this.character.powers }
     this.tabs.kick()
     
   render: (character) ->
