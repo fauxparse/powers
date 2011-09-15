@@ -22,6 +22,8 @@ end
 gem 'foreman'
 gem 'thin'
 
+gem 'heroku'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 

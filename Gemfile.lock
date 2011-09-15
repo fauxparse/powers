@@ -43,6 +43,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.2)
+    configuration (1.1.0)
     daemons (1.1.4)
     erubis (2.7.0)
     eventmachine (0.12.10)
@@ -51,8 +52,15 @@ GEM
     foreman (0.20.0)
       term-ansicolor (~> 1.0.5)
       thor (>= 0.13.6)
+    heroku (2.4.1)
+      launchy (>= 0.3.2)
+      rest-client (~> 1.6.1)
+      term-ansicolor (~> 1.0.5)
     hike (1.2.1)
     i18n (0.6.0)
+    launchy (0.3.7)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -94,6 +102,8 @@ GEM
       thor (~> 0.14.6)
     rake (0.9.2)
     rdoc (3.9.4)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
     sass (3.1.7)
     sass-rails (3.1.0)
       actionpack (~> 3.1.0)
@@ -127,6 +137,7 @@ DEPENDENCIES
   bson_ext
   coffee-rails (~> 3.1.0)
   foreman
+  heroku
   mongo
   mongo_mapper
   rails (= 3.1.0)
