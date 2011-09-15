@@ -3,7 +3,9 @@ class Character
   
   key :name, String
   key :slug, String
+  one :abilities
+  one :defenses
   many :powers
   one :hp, :class => Gauge
-  one :surges, :class => Surges
+  one :surges
 end

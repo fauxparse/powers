@@ -155,8 +155,7 @@
   height: 32px;
   margin-left: 4px;
   border-radius: 16px;
-  background: #f7f7f7;
-  -webkit-box-shadow: inset 0 1px 0px white, inset 0 -1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 white;
+  background: #f2f2f2;
 }
 
 .power .uses li:after {
@@ -167,13 +166,13 @@
   width: 16px;
   height: 16px;
   overflow: hidden;
-  background: #8dc63f;
+  background: white;
   border-radius: 8px;
 }
 
-.power.at-will   .uses li:after { background: #8dc63f; }
-.power.encounter .uses li:after { background: #00aeef; }
-.power.daily     .uses li:after { background: #ec008c; }
+.power.at-will   .uses li, .power.at-will   .uses li.used:after { background: #8dc63f; }
+.power.encounter .uses li, .power.encounter .uses li.used:after { background: #00aeef; }
+.power.daily     .uses li, .power.daily     .uses li.used:after { background: #ec008c; }
 
 .power .uses li.used:after {
   opacity: 0.25;
@@ -181,7 +180,7 @@
 
 .power .uses li.used {
   background: rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px 0 white;
+  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .power [rel=reset] {

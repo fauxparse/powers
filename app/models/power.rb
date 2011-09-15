@@ -6,6 +6,7 @@ class Power
   key :range, Integer
   key :level, Integer
   key :action_type, Symbol
+  one :uses, :class => Gauge
   many :rolls
   many :effects
 end

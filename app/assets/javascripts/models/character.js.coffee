@@ -1,4 +1,4 @@
-Character = Spine.Model.setup "Character", [ "name", "powers", "hp", "surges" ]
+Character = Spine.Model.setup "Character", [ "name", "slug", "abilities", "defenses", "powers", "hp", "surges" ]
 Character.extend Spine.Model.Ajax
 Character.ajaxPrefix = "character"
 

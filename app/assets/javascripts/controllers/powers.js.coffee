@@ -87,7 +87,7 @@ PowerController = Spine.Controller.create {
         roll: roll
         el: $("<li/>").appendTo(this.$(".rolls"))
       }).render()
-    for i in [1..this.power.uses]
+    for i in [1..this.power.uses.max]
       $("<li/>").appendTo this.$(".uses")
     this
     

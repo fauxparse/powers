@@ -1,0 +1,105 @@
+.abilities {
+}
+
+.abilities dl.abilities {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  vertical-align: middle;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.abilities dl.abilities dt {
+  clear: left;
+  float: left;
+  margin: 0 0 4px;
+  background: #ed1c24;
+  color: #f2f2f2;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 24px;
+  vertical-align: middle;
+  padding: 0 8px;
+  width: 32px;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+}
+
+.abilities dl.abilities dd {
+  margin: 0;
+  padding: 0 8px;
+  float: left;
+  width: 24px;
+  text-align: right;
+  background: #f2f2f2;
+  color: #222;
+}
+
+.abilities dl.abilities dd.mod {
+  font-size: 14px;
+  background: #ed1c24;
+  color: rgba(255, 255, 255, 0.5);
+  width: 16px;
+  -webkit-border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+}
+
+.abilities dl.abilities dt.str, .abilities dl.abilities dd.str.mod,
+.abilities dl.abilities dt.con, .abilities dl.abilities dd.con.mod  { background: #ec008c; }
+.abilities dl.abilities dt.dex, .abilities dl.abilities dd.dex.mod,
+.abilities dl.abilities dt.int, .abilities dl.abilities dd.int.mod  { background: #8dc63f; }
+.abilities dl.abilities dt.wis, .abilities dl.abilities dd.wis.mod,
+.abilities dl.abilities dt.cha, .abilities dl.abilities dd.cha.mod  { background: #00aeef; }
+
+.abilities dl.defenses {
+  position: absolute;
+  left: 132px;
+  top: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.abilities dl.defenses dt {
+  height: 16px;
+  line-height: 16px;
+  width: 52px;
+  background: #ed1c24;
+  text-align: center;
+  color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+}
+
+.abilities dl.defenses dd {
+  margin: 0 0 4px;
+  padding: 0;
+  background: #f2f2f2;
+  width: 44px;
+  border: 4px solid #ed1c24;
+  border-top: none;
+  line-height: 32px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  -webkit-border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+}
+
+.abilities dl.defenses dt.fort { background-color: #ec008c; }
+.abilities dl.defenses dt.ref  { background-color: #8dc63f; }
+.abilities dl.defenses dt.will { background-color: #00aeef; }
+.abilities dl.defenses dt.ac   { background-color: #333333; }
+.abilities dl.defenses dd.fort { border-color: #ec008c; }
+.abilities dl.defenses dd.ref  { border-color: #8dc63f; }
+.abilities dl.defenses dd.will { border-color: #00aeef; }
+.abilities dl.defenses dd.ac   { border-color: #333333; }

@@ -4,7 +4,7 @@ TabsController = Spine.Controller.create {
     
   kick: ->
     selected = window.location.hash
-    selected = this.tabs.find("li a").first().attr("href") if !selected or (this.el.children(selected).length == 0)
+    selected = this.tabs.find("li a").first().attr("href") if !selected or (this.el.children(".#{selected.substring(1)}").length == 0)
     this.switchTo this.tabs.find("li.#{selected.substring(1)}-tab a").first()
     
   add: (id, label, controller, options) ->
