@@ -1,6 +1,6 @@
 class Power
   include MongoMapper::EmbeddedDocument
-  
+
   key :name, String
   key :description, String
   key :range, Integer
