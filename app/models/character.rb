@@ -1,6 +1,6 @@
 class Character
   include MongoMapper::Document
-  
+
   key :name, String
   key :slug, String
   one :abilities
@@ -8,4 +8,5 @@ class Character
   many :powers
   one :hp, :class => Gauge
   one :surges
+  key :action_points, Integer, :default => 1
 end

@@ -113,13 +113,22 @@
 .health .surges {
   position: relative;
   margin: 8px;
-  padding-top: 40px;
+  padding: 48px 8px 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.health .surges .values {
+  top: 8px;
+  left: 8px;
+  right: 8px;
 }
 
 .health .surges .values:before {
   content: 'Healing surges';
   position: absolute;
-  left: 0;
   left: 0;
   top: 0;
   text-align: left;
@@ -187,4 +196,72 @@
 
 .health .extended.rest {
   left: 164px;
+}
+
+.health .action-points {
+  clear: both;
+  position: relative;
+  padding: 8px;
+  height: 32px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.health .action-points:before {
+  content: 'Action points';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  text-align: left;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.health .action-points a {
+  float: right;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  color: white;
+  background: #00aeef;
+  text-decoration: none;
+  text-indent: -10em;
+  text-align: left;
+  overflow: hidden;
+}
+
+.health .action-points a.minus {
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+}
+
+.health .action-points a.plus {
+  -webkit-border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+}
+
+.health .action-points a:before,
+.health .action-points a.plus:after {
+  content: " ";
+  position: absolute;
+  overflow: hidden;
+  background: white;
+  left: 5px;
+  top: 13px;
+  width: 22px;
+  height: 6px;
+}
+
+.health .action-points a.plus:after {
+  -webkit-transform: rotate(90deg);
+}
+
+.health .action-points .current {
+  float: right;
+  background: #f2f2f2;
+  color: #222;
+  width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  text-align: right;
 }

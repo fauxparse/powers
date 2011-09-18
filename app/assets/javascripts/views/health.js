@@ -25,6 +25,11 @@ Jaml.register("health", function(character) {
     a({ cls: "use", href: "#" }, "+"),
     div({ cls: "dots" }, "")
   ),
+  div({ cls: "action-points values" },
+    a({ cls: "plus", href: "#" }, "+"),
+    span({ cls: "current" }, character.action_points.toString()),
+    a({ cls: "minus", href: "#" }, "-")
+  )
   div({ cls: "rests" },
     a({ cls: "short rest", href: "#" }, "Short rest"),
     a({ cls: "extended rest", href: "#" }, "Extended rest")
