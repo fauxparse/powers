@@ -18,6 +18,12 @@
   color: white;
   border-radius: 8px;
   text-shadow: 0 -1px 0 black;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.overlay .critical {
+  background: rgba(237, 28, 36, 0.85);
+  text-shadow: 0 -1px 0 #ed1c24;
 }
 
 .overlay .roll {
