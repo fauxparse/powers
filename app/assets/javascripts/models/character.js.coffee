@@ -9,12 +9,17 @@ Character.include {
     this.hp = Gauge.init(this.hp or {})
     this.surges = Gauge.init(this.surges or {})
 
+  scheduleSave: ->
+    if this.saveTimer
+      clearTimeout this.saveTimer
+    this.saveTimer = setTimeout((=> this.save()), 500)
+
   surge: (doSave) ->
     if this.surges.current > 0
       this.surges.subtract 1
       this.hp.add this.surges.value
       if doSave != false
-        this.save()
+        this.scheduleSave()
 
   shortRest: ->
     for power in this.powers
@@ -22,35 +27,35 @@ Character.include {
     this.hp.temp = 0
     while this.surges.current > 0 and this.hp.current + this.surges.value <= this.hp.max
       this.surge(false)
-    this.save()
+    this.scheduleSave()
 
   extendedRest: ->
     power.reset() for power in this.powers
     this.hp.reset()
     this.surges.reset()
     this.action_points = 1
-    this.save()
+    this.scheduleSave()
 
   heal: (amount) ->
     this.hp.add amount
-    this.save()
+    this.scheduleSave()
 
   tempHP: (amount) ->
     this.hp.addTemp amount
-    this.save()
+    this.scheduleSave()
 
   damage: (amount) ->
     this.hp.subtract amount
-    this.save()
+    this.scheduleSave()
 
   useActionPoint: ->
     if this.action_points > 0
       this.action_points--
-      this.save()
+      this.scheduleSave()
 
   gainActionPoint: ->
     this.action_points++
-    this.save()
+    this.scheduleSave()
 }
 
 this.Character = Character

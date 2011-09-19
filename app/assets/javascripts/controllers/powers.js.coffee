@@ -101,12 +101,13 @@ PowerController = Spine.Controller.create {
     $(event.target).toggleClass("used")
     this.power.use()
     this.el.toggleClass "used", this.power.used()
-    this.character.save()
+    this.character.scheduleSave()
     false
 
   resetClicked: (event) ->
     event.preventDefault()
     this.power.reset()
+    this.character.scheduleSave()
     false
 
   reset: ->
