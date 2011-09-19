@@ -89,7 +89,7 @@ PowerController = Spine.Controller.create {
         el: $("<li/>").appendTo(this.$(".rolls"))
       }).render()
     for i in [1..this.power.uses.max]
-      $("<li/>").appendTo(this.$(".uses")).toggleClass("used", this.power.uses.current >= i)
+      $("<li/>").appendTo(this.$(".uses")).toggleClass("used", this.power.uses.current < i)
     this.el.toggleClass "used", this.power.used()
     this
 
