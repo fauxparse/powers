@@ -2,7 +2,7 @@ CharactersController = Spine.Controller.create {
   proxied: [ "addOne", "addAll", "flip", "select" ]
 
   events: {
-    "click .character .header": "flip"
+    "click .character>.header": "flip"
     "click .list a": "select"
   }
 
