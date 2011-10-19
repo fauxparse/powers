@@ -6,6 +6,7 @@ Jaml.register("power", function(power) {
       div({ cls: "action" }, power.action())
     ),
     div({ cls: "body" },
+      p({ cls: "range" }, (power.range || '').replace(/^([^\s]+)/, "<strong>$1</strong>")),
       // p({ cls: "description" }, power.description),
       ul({ cls: "rolls" }),
       Jaml.render("effect", power.effects)

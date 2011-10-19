@@ -98,6 +98,11 @@
   right: 8px;
 }
 
+.power .range {
+  padding: 4px 8px;
+  margin: 0;
+}
+
 .power .description {
   padding: 8px;
   margin: 0;

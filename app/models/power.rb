@@ -3,7 +3,7 @@ class Power
 
   key :name, String
   key :description, String
-  key :range, Integer
+  key :range, String
   key :level, Integer
   key :action_type, Symbol
   one :uses, :class => Gauge

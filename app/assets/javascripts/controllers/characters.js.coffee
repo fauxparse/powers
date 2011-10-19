@@ -33,7 +33,6 @@ CharactersController = Spine.Controller.create {
 
   select: (event) ->
     event.preventDefault()
-    console.log($(event.target).attr("href"));
     this.$($(event.target).attr("href")).show().siblings().hide()
     this.el.toggleClass("selecting")
     return false
