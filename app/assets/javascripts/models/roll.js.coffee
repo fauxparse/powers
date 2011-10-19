@@ -28,6 +28,13 @@ Roll.include {
       match = /(\d+)(d(\d+))?/.exec(die)
       total += parseInt(match[1], 10) * parseInt(match[3] || "1", 10)
     Math.floor(total * this.multiplier())
+
+  fumble: ->
+    total = 0
+    for die in this.parts()
+      match = /(\d+)(d(\d+))?/.exec(die)
+      total += parseInt(match[1], 10)
+    Math.floor(total * this.multiplier())
 }
 
 this.Roll = Roll

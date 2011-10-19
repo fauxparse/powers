@@ -99,8 +99,27 @@
 }
 
 .power .range {
+  float: left;
   padding: 4px 8px;
   margin: 0;
+}
+
+.power .target {
+  float: right;
+  padding: 4px 8px;
+  margin: 0;
+}
+
+.power .keywords {
+  clear: both;
+  padding: 4px 8px;
+  margin: 0;
+}
+
+.power .range:empty,
+.power .target:empty,
+.power .keywords:empty {
+  display: none;
 }
 
 .power .description {
@@ -109,6 +128,7 @@
 }
 
 .power .rolls {
+  clear: both;
   margin: 0;
   padding: 4px;
 }

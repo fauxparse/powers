@@ -26,6 +26,11 @@
   text-shadow: 0 -1px 0 #ed1c24;
 }
 
+.overlay .fumble {
+  background: rgba(0, 174, 239, 0.85);
+  text-shadow: 0 -1px 0 #00aeef;
+}
+
 .overlay .roll {
   text-align: center;
   font-size: 96px;

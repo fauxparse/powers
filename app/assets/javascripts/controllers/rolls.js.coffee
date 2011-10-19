@@ -25,7 +25,7 @@ RollController = Spine.Controller.create {
     result = this.roll.roll()
     overlay = $("<div/>").addClass("overlay").html(Jaml.render("result", this.roll)).appendTo("#container")
     overlay.find(".roll").text result
-    overlay.find(".result").toggleClass "critical", result == this.roll.critical()
+    overlay.find(".result").toggleClass("critical", result == this.roll.critical()).toggleClass("fumble", result == this.roll.fumble())
     overlay.one((if $.os.ios then "tap" else "click"), (event) =>
       $(".result", overlay).anim { scale: "100", opacity: 0 }, 0.5, "ease", => overlay.remove()
     )

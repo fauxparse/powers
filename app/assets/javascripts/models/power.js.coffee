@@ -1,4 +1,4 @@
-Power = Spine.Model.setup "Power", [ "_type", "name", "description", "range", "level", "action_type", "rolls", "effects", "uses" ]
+Power = Spine.Model.setup "Power", [ "_type", "name", "description", "range", "target", "level", "action_type", "rolls", "effects", "uses", "keywords" ]
 
 Power.include {
   init: (attrs) ->
