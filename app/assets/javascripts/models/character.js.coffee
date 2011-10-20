@@ -1,4 +1,4 @@
-Character = Spine.Model.setup "Character", [ "name", "slug", "abilities", "defenses", "powers", "hp", "surges", "action_points" ]
+Character = Spine.Model.setup "Character", [ "name", "slug", "level", "abilities", "defenses", "powers", "hp", "surges", "action_points" ]
 Character.extend Spine.Model.Ajax
 Character.ajaxPrefix = "character"
 
@@ -56,6 +56,9 @@ Character.include {
   gainActionPoint: ->
     this.action_points++
     this.scheduleSave()
+
+  halfLevel: ->
+    Math.floor(this.level / 2)
 }
 
 this.Character = Character

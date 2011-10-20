@@ -3,6 +3,7 @@ class Character
 
   key :name, String
   key :slug, String
+  key :level, Integer
   one :abilities
   one :defenses
   many :powers
